@@ -3,6 +3,7 @@ import utility
 import numpy as np
 
 imshow = False
+
 def find_components(edges, max_components=10):
   
     count = max_components + 1
@@ -42,7 +43,6 @@ def find_optimal_components_subset(components, edges):
     for i, c in enumerate(c_info):
         this_crop = c['x1'], c['y1'], c['x2'], c['y2']
         if covered_text_pixels / float(total_text_pixels) < fraction_of_text_to_cover:
-            # print '%d %s -> %s' % (i, covered_text_pixels, covered_text_pixels + c['sum'])
             crop = union_crops(crop, this_crop)
             covered_text_pixels += c['sum']
         else:
@@ -96,4 +96,4 @@ def crop(path, out_path, show=False):
     crop = [int(x * scale) for x in crop]  # upscale to the original image size.
     cropped_im = orig_im[crop[1]:crop[3], crop[0]: crop[2]]
     cv2.imwrite(out_path, cropped_im)
-# crop('no_noise.jpg', 'scan_res.jpg', True)
+

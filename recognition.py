@@ -8,8 +8,8 @@ from PIL import Image
 import argparse
 from test_accuracy import test_accuracy
 
-def recognize(imgname, output, desired,
-              show_intermediate_results=False):
+
+def recognize(imgname, output, desired, show_intermediate_results=False):
     scan(imgname, show_intermediate_results)
     im = cv2.imread('deskewed.jpg')
     im = cv2.dilate(im, np.ones((2, 2)))
@@ -23,7 +23,6 @@ def recognize(imgname, output, desired,
 
 
 if __name__ == '__main__':
-    #python .\recognize.py -i photos\chom4.jpg -c texts\chom.txt -o output.txt
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--image", required=False, default='photos/chom3.jpg',
                     help="Path to the image to be scanned")

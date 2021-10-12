@@ -1,0 +1,6 @@
+opencv-python
+utility
+numpy
+scikit-image
+jellyfish
+pytesseract
